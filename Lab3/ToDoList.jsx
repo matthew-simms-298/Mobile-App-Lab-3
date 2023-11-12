@@ -14,10 +14,10 @@ import {
 function ToDoList({tasks}) {
     return (
         <ScrollView>
-          tasks.map(
+          tasks.map(task,
             <Pressable>
               <View style={[styles.task, styles.completed]}>
-                <Text style={styles.taskText}>{tasks.task}</Text>
+                <Text style={styles.taskText}>{task}</Text>
               </View>
             </Pressable>
           )

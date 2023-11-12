@@ -29,16 +29,16 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-const [tasks, setTasks] = useState(
-    setTasks = [
-      'Do laundry',
-      'Go to gym',
-      'Walk dog'
-    ]
-  );
+const [tasks, setTasks] = useState();
 
 
 function App() {
+
+  setTasks(tasks = [
+    'Do laundry',
+    'Go to gym',
+    'Walk dog'
+  ])
   
   let condition = false;
 
@@ -46,7 +46,7 @@ function App() {
 
   return (
     <SafeAreaView>
-      <ToDoList tasks ={tasks}/>
+      <ToDoList tasks ={setTasks}/>
       <ToDoForm/>
     </SafeAreaView>
   );
