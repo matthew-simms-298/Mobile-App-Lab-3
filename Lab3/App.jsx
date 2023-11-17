@@ -1,53 +1,35 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
+"use client";
 
-import React, { useState } from 'react';
+import React from 'react';
 import ToDoForm from './ToDoForm';
 import ToDoList from './ToDoList';
 
 import {
   SafeAreaView,
-  ScrollView,
-  StatusBar,
   StyleSheet,
-  Text,
-  TextInput,
-  Button,
-  useColorScheme,
   View,
 } from 'react-native';
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
 
-const [tasks, setTasks] = useState();
 
 
 function App() {
 
-  setTasks(tasks = [
+  const [tasks, setTasks] = React.useState([
     'Do laundry',
     'Go to gym',
     'Walk dog'
-  ])
-  
-  let condition = false;
-
-  let dynamicStyles = condition ? styles.text : styles.textBlue;
+  ]);
+  const addTask = (taskText) => {
+    setTasks([...tasks, taskText]);
+  };
 
   return (
     <SafeAreaView>
-      <ToDoList tasks ={setTasks}/>
-      <ToDoForm/>
+      <View>
+        <ToDoForm addTask = {addTask}/>
+        <ToDoList tasks = {tasks}/>
+      </View>
     </SafeAreaView>
   );
 }

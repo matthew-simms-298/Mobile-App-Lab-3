@@ -1,28 +1,28 @@
-import React from 'react'
+"use client";
 
+import React from 'react'
 import {
-    SafeAreaView,
     StyleSheet,
     Pressable,
     View,
     Text,
     ScrollView,
-    TextInput,
-    Button
   } from 'react-native';
 
 function ToDoList({tasks}) {
     return (
         <ScrollView>
-          tasks.map(task,
             <Pressable>
-              <View style={[styles.task, styles.completed]}>
-                <Text style={styles.taskText}>{task}</Text>
+              <View>
+                  {tasks.map((task) => {
+                    return (
+                      <Text>{task}</Text>
+                    )
+                })}
               </View>
             </Pressable>
-          )
-      </ScrollView>
-    )
+        </ScrollView>
+    );
 }
 
 const styles = StyleSheet.create({
